@@ -1,0 +1,12 @@
+{
+  "name": "eslint-plugin-import-extended",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iameax/eslint-plugin-code-style.git"
+  },
+  "dependencies": {
+    "eslint-module-utils": "^2.6.0"
+  }
+}
