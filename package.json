@@ -1,7 +1,7 @@
 {
-  "name": "@eax/eslint-plugin-import-extended",
-  "version": "0.0.2",
-  "main": "src/index.js",
+  "name": "@iameax/eslint-plugin-code-style",
+  "version": "0.0.3",
+  "main": "lib/index.js",
   "files": [
     "*.md",
     "LICENSE",
@@ -11,8 +11,9 @@
   "scripts": {
     "prebuild": "rimraf lib",
     "build": "babel --quiet --out-dir lib src",
-    "postversion": "git push --tags && yarn publish . --access public --tag $npm_package_version && git push && echo \"Successfully released version $npm_package_version!\"",
-    "prepublish": "npm run build && yarn "
+    "bump-version": "yarn version --patch",
+    "postversion": "git push --follow-tags && yarn publish . --access public",
+    "prepublish": "yarn build"
   },
   "repository": {
     "type": "git",
