@@ -9,3 +9,6 @@ yarn-error.log*
 node_modules/
 .npm
 
+# generated
+lib/
+

@@ -1,3 +1,10 @@
+/**
+ * @fileoverview Rule to disallow relative parent imports
+ * @author goo.eax@gmail.com
+ */
+
+'use strict';
+
 const path = require('path');
 const moduleVisitor = require('eslint-module-utils/moduleVisitor').default;
 const resolve = require('eslint-module-utils/resolve').default;
@@ -50,17 +57,14 @@ module.exports = {
         return;
       }
 
-      if (baseUrl) {
-        const pathRelativeToBaseUrl = path.join(path.dirname(filePath), depPath).replace(baseUrl + '/', '');
-
-        context.report({
-          node: sourceNode,
-          message: 'no relative parent imports',
-          fix: function (fixer) {
-            return fixer.replaceText(sourceNode, JSON.stringify(pathRelativeToBaseUrl));
-          },
-        });
-      }
+      context.report({
+        node: sourceNode,
+        message: 'no relative parent imports',
+        fix: function (fixer) {
+          const pathRelativeToBaseUrl = path.join(path.dirname(filePath), depPath).replace(baseUrl + '/', '');
+          return baseUrl && fixer.replaceText(sourceNode, JSON.stringify(pathRelativeToBaseUrl));
+        },
+      });
     }
 
     return moduleVisitor(checkSourceValue, context.options[0]);

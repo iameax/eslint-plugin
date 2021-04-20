@@ -1,12 +1,37 @@
 {
-  "name": "eslint-plugin-import-extended",
-  "version": "1.0.0",
+  "name": "@eax/eslint-plugin-import-extended",
+  "version": "0.0.1",
   "main": "src/index.js",
+  "files": [
+    "*.md",
+    "LICENSE",
+    "docs",
+    "lib"
+  ],
+  "scripts": {
+    "prebuild": "rimraf lib",
+    "build": "babel --quiet --out-dir lib src",
+    "prepublish": "npm run build"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/iameax/eslint-plugin-code-style.git"
+    "url": "git+https://github.com/iameax/eslint-plugin-code-style.git"
   },
   "dependencies": {
     "eslint-module-utils": "^2.6.0"
-  }
+  },
+  "description": "",
+  "bugs": {
+    "url": "https://github.com/iameax/eslint-plugin-code-style/issues"
+  },
+  "homepage": "https://github.com/iameax/eslint-plugin-code-style#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.13.16",
+    "@babel/preset-env": "^7.13.15",
+    "eslint": "^7.24.0",
+    "rimraf": "^3.0.2"
+  },
+  "author": "goo.eax@gmail.com",
+  "license": "MIT"
 }
