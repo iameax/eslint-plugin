@@ -11,6 +11,7 @@
   "scripts": {
     "prebuild": "rimraf lib",
     "build": "babel --quiet --out-dir lib src",
+    "test": "mocha --recursive \"./tests/**/*.js\"",
     "bump-version": "yarn version --patch",
     "postversion": "git push --follow-tags && yarn publish . --access public",
     "prepublish": "yarn build"
@@ -20,7 +21,8 @@
     "url": "git+https://github.com/iameax/eslint-plugin-code-style.git"
   },
   "dependencies": {
-    "eslint-module-utils": "^2.6.0"
+    "eslint-module-utils": "^2.6.0",
+    "mocha": "^8.3.2"
   },
   "description": "",
   "bugs": {
