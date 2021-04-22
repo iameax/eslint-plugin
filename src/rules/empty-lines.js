@@ -29,7 +29,7 @@ const optSchema = {
 const defaults = {
   eof: 1,
   bof: 0,
-  default: { max: 1 },
+  default: { min: 0, max: 1 },
   eoi: 2,
 };
 
