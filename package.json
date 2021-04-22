@@ -12,8 +12,8 @@
     "prebuild": "rimraf lib",
     "build": "babel --quiet --out-dir lib src",
     "test": "mocha --recursive \"./tests/**/*.js\"",
-    "bump-version": "yarn version --patch",
-    "postversion": "git push --follow-tags && yarn publish . --access public",
+    "prepush": "yarn version --patch",
+    "postpush": "yarn publish . --access public",
     "prepublish": "yarn build"
   },
   "repository": {
