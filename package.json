@@ -1,6 +1,6 @@
 {
   "name": "@iameax/eslint-plugin-code-style",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "main": "lib/index.js",
   "files": [
     "*.md",
@@ -12,7 +12,8 @@
     "prebuild": "rimraf lib",
     "build": "babel --quiet --out-dir lib src",
     "test": "mocha --recursive \"./tests/**/*.js\"",
-    "publish": "yarn version --patch && yarn publish . --access public && git push --follow-tags",
+    "bump": "yarn version --patch",
+    "postversion": "yarn publish . --access public && git push --follow-tags",
     "prepublish": "yarn build"
   },
   "repository": {
