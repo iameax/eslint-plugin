@@ -61,8 +61,17 @@ module.exports = {
         node: sourceNode,
         message: 'no relative parent imports',
         fix: function (fixer) {
-          const pathRelativeToBaseUrl = path.join(path.dirname(filePath), depPath).replace(baseUrl + '/', '');
-          return baseUrl && fixer.replaceText(sourceNode, JSON.stringify(pathRelativeToBaseUrl));
+          if (!baseUrl) {
+            return;
+          }
+
+          const absolutePath = path.join(path.dirname(filePath), depPath);
+
+          if (absolutePath.startsWith(baseUrl)) {
+            const pathRelativeToBaseUrl = path.join(path.dirname(filePath), depPath).replace(baseUrl + '/', '');
+
+            return fixer.replaceText(sourceNode, JSON.stringify(pathRelativeToBaseUrl));
+          }
         },
       });
     }
