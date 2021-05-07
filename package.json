@@ -1,5 +1,5 @@
 {
-  "name": "@iameax/eslint-plugin-code-style",
+  "name": "@iameax/eslint-plugin",
   "version": "0.0.14",
   "main": "lib/index.js",
   "files": [
